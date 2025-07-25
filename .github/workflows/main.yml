@@ -29,13 +29,25 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-
-    # Run unit tests
-    - name: Run tests
+    
+    - name: Create a sample file
       run: |
-        pytest
+        echo "hello raman boy!">raman.txt
+
+    - name: upload the artifact
+      uses: actions/upload-artifact@v4.6.2
+      with:
+       name: myartifact
+       path: ./raman.txt
+          
+        
+    # # Run unit tests
+    # - name: Run tests
+    #   run: |
+    #     pytest
 
   lint:
+    needs: test
     runs-on: ubuntu-latest
 
     steps:
@@ -48,6 +60,11 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: '3.9'
+    
+    - name: download the artifact
+      uses: actions/download-artifact@v4.3.0
+      with:
+       name: myartifact
 
     # Install dependencies for linting
     - name: Install pylint
@@ -59,3 +76,4 @@ jobs:
     - name: Run Linter
       run: |
         pylint **/*.py
+        cat raman.txt
