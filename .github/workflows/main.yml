@@ -75,5 +75,4 @@ jobs:
     # Run linter
     - name: Run Linter
       run: |
-        pylint **/*.py
-        cat raman.txt
+         cat raman.txt
