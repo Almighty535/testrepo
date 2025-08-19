@@ -26,7 +26,8 @@ jobs:
     # Name of the artifact to download. If unspecified, all artifacts for the run are downloaded.
           name: Downloadedartifact
     # IDs of the artifacts to download, comma-separated. Either inputs `artifact-ids` or `name` can be used, but not both.
-          artifact-ids: Myownartifact
+           # artifact-ids: Myownartifact
+          path: Myownartifact
 
      -  name: usetheartifact
         run: cat ./raman.txt
