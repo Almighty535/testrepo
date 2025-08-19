@@ -8,3 +8,26 @@ jobs:
     steps:
         - name: "First step"
           run: echo "hello raman"
+
+  secondjob:
+    runs-on: ubuntu-latest
+    steps:
+     - name: "Create a test file"
+       run: echo "jamba lakdi pamba!" > raman.txt
+     - name: UploadedArtifact
+       uses: actions/upload-artifact@v4.6.2
+       with:
+          name: Myownartifact
+          path: "*.txt"
+
+     - name: Download a Build Artifact
+       uses: actions/download-artifact@v5.0.0
+       with:
+    # Name of the artifact to download. If unspecified, all artifacts for the run are downloaded.
+          name: Downloadedartifact
+    # IDs of the artifacts to download, comma-separated. Either inputs `artifact-ids` or `name` can be used, but not both.
+          artifact-ids: Myownartifact
+
+     -  name: usetheartifact
+        run: cat ./raman.txt
+ 
