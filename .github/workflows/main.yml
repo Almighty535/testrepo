@@ -1,13 +1,13 @@
 name: Python CI/CD Workflow
 
-on:
-  # Run the workflow on pushes to the main branch and pull requests
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+# on:
+#   # Run the workflow on pushes to the main branch and pull requests
+#   push:
+#     branches:
+#       - main
+#   pull_request:
+#     branches:
+#       - main
 
 jobs:
   test:
