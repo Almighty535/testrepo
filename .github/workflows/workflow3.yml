@@ -1,1 +1,10 @@
+name: workflow3-yaml
+run-name: "Don't give up"
+on: push
 
+jobs:
+  firstjob:
+    runs-on: ubuntu-latest
+    steps:
+        - name: "First step"
+          run: echo "hello raman"
