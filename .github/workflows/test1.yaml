@@ -11,8 +11,10 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
     steps:
     # Checkout the code from the GitHub repository
     # - name: Checkout repository
@@ -32,7 +34,7 @@ jobs:
     
     - name: Create a sample file
       run: |
-        echo "hello raman boy!">raman.txt
+        echo "${{ matrix.os }}"
 
     # - name: upload the artifact
     #   uses: actions/upload-artifact@v4.6.2
