@@ -21,5 +21,9 @@ jobs:
           echo "${{ matrix.os }}"
       - name: step 2
         run: echo "step 2"
-
+  job2:
+   runs-on: ubuntu-22.04
+   steps:
+    - name: Step1 of Job2
+      run: echo "Step1 od job2"
           
